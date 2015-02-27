@@ -15,7 +15,7 @@ import { v1 as V1Api } from 'snoode';
     }
     componentDidMount() {
       this.api = new V1Api({
-        userAgent: 'osx',
+        userAgent: null,
         origin: 'https://ssl.reddit.com',
       });
       this.api.links.get({
@@ -52,8 +52,7 @@ import { v1 as V1Api } from 'snoode';
             subreddit={this.props.subreddit}
             domain={this.props.domain}
             comments={this.props.num_comments}
-            upvotes={this.props.ups}
-            downvotes={this.props.down}
+            score={this.props.score}
           />
           <LinkImage
             cleanUrl={this.props.cleanUrl}
@@ -75,7 +74,14 @@ import { v1 as V1Api } from 'snoode';
 
   class LinkActions extends React.Component {
     render() {
-      return <h1>Link Action</h1>
+      return (
+        <ul className="link__actions">
+          <li className="link__action"><a href="#">{this.props.subreddit}</a></li>
+          <li className="link__action"><a href="#">{this.props.domain}</a></li>
+          <li className="link__action"><a href="#">comments: {this.props.comments}</a></li>
+          <li className="link__action"><a href="#">score: {this.props.score}</a></li>
+        </ul>
+      );
     }
   }
 
@@ -89,5 +95,5 @@ import { v1 as V1Api } from 'snoode';
     }
   }
 
-  React.render(<Links subredditName="pics" />, window.document.querySelector("#target"));
+  React.render(<Links subredditName="earthporn" />, window.document.querySelector("#target"));
 })();

@@ -1,9 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #ebf3fc;
 }
 
 .link {
   background-color: #fafafa;
+  padding: 10px;
   border: 1px solid #ccc;
   width: 100%;
   margin-bottom: 5px;
@@ -12,4 +17,23 @@ body {
 .link__image {
   max-width: 75%;
   max-height: 50vh;
+}
+
+.link__actions {
+  padding-left: 0;
+  list-style: none;
+}
+
+.link__action {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.link__action a {
+  color: #999;
+  text-decoration: none;
+}
+
+.link__action a:hover {
+  text-decoration: underline;
 }

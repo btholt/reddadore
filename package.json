@@ -23,6 +23,7 @@
     "babel": "^4.5.5",
     "browserify": "^9.0.3",
     "koa": "^0.18.0",
+    "koa-router": "^4.2.0",
     "koa-static": "^1.4.9",
     "react": "^0.13.0-rc1",
     "snoode": "^0.2.4",

@@ -1,6 +1,8 @@
 import React from 'react';
 import { v1 as V1Api } from 'snoode';
 
+const extensions = ['jpg', 'jpeg', 'gif', 'png'];
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -52,10 +54,65 @@ class Links extends React.Component {
     return (
       <section>
         {this.state.links.map(function(el) {
-          return <div>{el.title}</div>
+          return <Link {...el} key={el.id} />
         })}
       </section>
     );
+  }
+}
+
+class Link extends React.Component {
+  render() {
+    return (
+      <article className="link">
+        <LinkTitle 
+          title={this.props.title} 
+          link={this.props.cleanUrl} 
+        />
+        <LinkActions
+          subreddit={this.props.subreddit}
+          domain={this.props.domain}
+          comments={this.props.num_comments}
+          score={this.props.score}
+        />
+        <LinkImage
+          cleanUrl={this.props.cleanUrl}
+        />
+      </article>
+    );
+  }
+}
+
+class LinkTitle extends React.Component {
+  render() {
+    return (
+      <a className="link__title-anchor" href={this.props.link}>
+        <h2>{this.props.title}</h2>
+      </a>
+    );
+  }
+}
+
+class LinkActions extends React.Component {
+  render() {
+    return (
+      <ul className="link__actions">
+        <li className="link__action"><a href="#">{this.props.subreddit}</a></li>
+        <li className="link__action"><a href="#">{this.props.domain}</a></li>
+        <li className="link__action"><a href="#">comments: {this.props.comments}</a></li>
+        <li className="link__action"><a href="#">score: {this.props.score}</a></li>
+      </ul>
+    );
+  }
+}
+
+class LinkImage extends React.Component {
+  render() {
+    var parts = this.props.cleanUrl.split('.');
+    if (extensions.indexOf(parts[parts.length-1]) >= 0) {
+      return <img className="link__image" src={this.props.cleanUrl} />
+    }
+    return <h2 className="link__no-image">No image available.</h2>
   }
 }
 

@@ -1,0 +1,37 @@
+{
+  "name": "reddadore",
+  "version": "1.0.0",
+  "description": "Simple reddit reader built with React.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:btholt/reddadore.git"
+  },
+  "keywords": [
+    "reddit"
+  ],
+  "author": "Brian Holt <bri@nho.lt>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btholt/reddadore/issues"
+  },
+  "homepage": "https://github.com/btholt/reddadore",
+  "dependencies": {
+    "babel": "^4.5.5",
+    "browserify": "^9.0.3",
+    "koa": "^0.18.0",
+    "koa-static": "^1.4.9",
+    "react": "^0.13.0-rc1",
+    "snoode": "^0.2.4",
+    "vinyl-source-stream": "^1.0.0"
+  },
+  "devDependencies": {
+    "babelify": "^5.0.3",
+    "gulp": "^3.8.11",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.0"
+  }
+}
